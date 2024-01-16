@@ -17,13 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function() {
-    return view ('home');
 
+
+Route::get('posts', function (){
+    return view('posts');
 });
 
 
-
+Route::get('login', function (){
+    return view('auth.login');
+});
 
 Auth::routes();
 
