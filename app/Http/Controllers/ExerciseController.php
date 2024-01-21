@@ -7,41 +7,43 @@ use Illuminate\Http\Request;
 
 class ExerciseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $exercises = exercise::latest()->paginate(6);
+
+        return view('exercises', compact('exercises'))->with(request()->input('page'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
+
     public function store(Request $request)
     {
-        //
+        //validate the input
+        $request->validate([
+            'name' => 'required',
+            'muscle' => 'required'
+        ]);
+
+        //create a new exercise
+        Exercise::create($request->all());
+
+        //redirect the user and send message
+        return redirect()->route('exercises.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Exercise $exercise)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Exercise $exercise)
     {
         //

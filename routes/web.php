@@ -20,6 +20,9 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::resource('exercises',ExerciseController::class);
 
 
+route::get('create',function () {
+    return view('create');
+});
 
 Route::get('login', function (){
     return view('auth.login');
