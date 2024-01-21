@@ -30,13 +30,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>naam:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    <input type="text" name="name" class="form-control" placeholder="Naam oefening">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>spiergroep:</strong>
-                    <input type="text" name="muscle" class="form-control" placeholder="muscle">
+                    <input type="text" name="muscle" class="form-control" placeholder="Spiergroep">
                 </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>

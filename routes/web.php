@@ -19,9 +19,16 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Route::resource('exercises',ExerciseController::class);
 
+route::get('exercise',function () {
+    return view('exercise');
+});
 
 route::get('create',function () {
     return view('create');
+});
+
+route::get('edit',function () {
+    return view('edit');
 });
 
 Route::get('login', function (){

@@ -40,21 +40,32 @@ class ExerciseController extends Controller
 
     public function show(Exercise $exercise)
     {
-
+        return view('exercise', compact('exercise'));
     }
 
 
     public function edit(Exercise $exercise)
     {
-        //
+        return view('edit', compact('exercise'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Exercise $exercise)
+    public function update(Request $request, exercise $exercise)
     {
-        //
+        //validate the input
+        $request->validate([
+            'name' => 'required',
+            'muscle' => 'required'
+        ]);
+
+        //create a new exercise
+        $exercise->update($request->all());
+
+        //redirect the user and send message
+        return redirect()->route('exercises.index');
     }
 
     /**
@@ -62,6 +73,8 @@ class ExerciseController extends Controller
      */
     public function destroy(Exercise $exercise)
     {
-        //
+        $exercise->delete();
+
+        return redirect()->route('exercises.index');
     }
 }
